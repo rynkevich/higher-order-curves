@@ -41,21 +41,22 @@ def main():
             if event.type == sdl2.SDL_QUIT:
                 running = False
                 break
-
-        renderer.clear(COLOR_WHITE)
-        if selected_curve == 'cissoid':
-            drawer.draw_cissoid(CISSOID_PARAMS['a'], CISSOID_PARAMS['t_interval'], STEP)
-        elif selected_curve == 'folium':
-            drawer.draw_folium(FOLIUM_PARAMS['a'], FOLIUM_PARAMS['t_intervals'], STEP)
-        elif selected_curve == 'cardioid':
-            drawer.draw_cardioid(CARDIOID_PARAMS['a'], CARDIOID_PARAMS['t_interval'], STEP)
-        elif selected_curve == 'snail':
-            drawer.draw_snail(SNAIL_PARAMS['a'], SNAIL_PARAMS['l'], SNAIL_PARAMS['t_interval'], STEP)
-        elif selected_curve == 'epicycloid':
-            drawer.draw_epicycloid(EPICYCLOID_PARAMS['a'], EPICYCLOID_PARAMS['b'],
-                                   EPICYCLOID_PARAMS['t_interval'], STEP)
-        elif selected_curve == 'spiral':
-            drawer.draw_spiral(SPIRAL_PARAMS['a'], SPIRAL_PARAMS['phi_interval'], STEP)
+            elif event.type == sdl2.SDL_WINDOWEVENT:
+                renderer.clear(COLOR_WHITE)
+                if selected_curve == 'cissoid':
+                    drawer.draw_cissoid(CISSOID_PARAMS['a'], CISSOID_PARAMS['t_interval'], STEP)
+                elif selected_curve == 'folium':
+                    drawer.draw_folium(FOLIUM_PARAMS['a'], FOLIUM_PARAMS['t_intervals'], STEP)
+                elif selected_curve == 'cardioid':
+                    drawer.draw_cardioid(CARDIOID_PARAMS['a'], CARDIOID_PARAMS['t_interval'], STEP)
+                elif selected_curve == 'snail':
+                    drawer.draw_snail(SNAIL_PARAMS['a'], SNAIL_PARAMS['l'], SNAIL_PARAMS['t_interval'], STEP)
+                elif selected_curve == 'epicycloid':
+                    drawer.draw_epicycloid(EPICYCLOID_PARAMS['a'], EPICYCLOID_PARAMS['b'],
+                                           EPICYCLOID_PARAMS['t_interval'], STEP)
+                elif selected_curve == 'spiral':
+                    drawer.draw_spiral(SPIRAL_PARAMS['a'], SPIRAL_PARAMS['phi_interval'], STEP)
+                renderer.present()
 
     sdl2.ext.quit()
     return 0

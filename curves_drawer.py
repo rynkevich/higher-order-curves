@@ -78,7 +78,6 @@ class CurvesDrawer:
                 y = max_y - (trunc(y_parametric(t) * y_scaling_coeff) + center_y)
                 self.__renderer.draw_point((x, y), color)
                 t += step
-        self.__renderer.present()
 
     @staticmethod
     def __get_window_center(window):
